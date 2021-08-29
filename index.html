@@ -8,7 +8,7 @@
     <title>Project Selection</title>
   </head>
   <body>
-    <table id="inputs">
+    <table  id="inputs">
       <h2>Enter cash flow amount</h2>
       <tr>
         <th>0</th>
@@ -21,10 +21,8 @@
         <th>6</th>
         <th>7</th>
       </tr>
-      
-
       <tr>
-        <section class="cashflow">
+       
           <td><input id="val1" type="number" /></td>
           <td><input id="val2" type="number" /></td>
           <td><input id="val3" type="number" /></td>
@@ -34,9 +32,10 @@
 
           <td><input id="val7" type="number" /></td>
           <td><input id="val8" type="number" /></td>
-        </section>
+       
       </tr>
     </table>
+    
 
     <section class="access">
        <label for=""
@@ -53,16 +52,28 @@
 
     <section id="display" >
       <h1>Formula:</h1>
-      <h2>payBack period= Number of year prior to full recovery  + (Unrecovered cost  at the start of the year/cash flow during full recovery)</h2>
+      <h3>payBack period= Number of year prior to full recovery  + (Unrecovered cost  at the start of the year/cash flow during full recovery)</h3>
+      
+      <section class="result">
+         <h2>PBP :</h2>
+      <h2 id="payb"></h2>
+      </section>
+     <h3>use Inspect-> Console in browser to see full result</h3>
      
 
       
 
 
     </section>
+    <section>
+      <h4 id="dis"></h4>
+    </section>
     <footer>
       Developed by <a href="https://www.facebook.com/saaifulislamrifat/" target="_blank">@<span class="name">Saiful Islam Rifat</span></a>
     </footer>
+
+
+
 
     <script>
       document.getElementById("submit").addEventListener("click", function () {
@@ -161,10 +172,13 @@
 
         let payBack_period = index + positiveMax / fully_recovered_amount;
         console.log(`payBack_period) is ${payBack_period} `);
+        document.getElementById('payb').innerHTML=payBack_period
+
+    
 
 
 
-        document.write(`payBack_period is ${payBack_period}`)
+       //document.write(`payBack_period is ${payBack_period}`)
         
 
       

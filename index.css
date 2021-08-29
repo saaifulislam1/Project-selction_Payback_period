@@ -5,6 +5,7 @@
     
     margin: 100px;
     align-items: center;
+    padding: 20px;
     
 }
 input{
@@ -13,6 +14,7 @@ input{
     padding: 10px;
     border-radius: 30px;
     outline: none;
+    
 }
 #submit{
     background-color: rgb(105, 196, 105);
@@ -34,4 +36,35 @@ footer{
     text-align: center;
     background-color: rgb(46, 173, 46);
     color: white;
+}
+.result{
+    display: flex;
+    background-color:#273746;
+    border: 10px solid white;
+    width: 20%;
+    padding: 5px;
+    border-radius: 50px;
+    color: white;
+    padding-left: 30px;
+    
+}
+#inputs{
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media screen and (max-width: 375px){
+    
+    .access{
+        display: flex;
+       
+        flex-direction: column;
+    }
+    input{
+        display: flex;
+        flex-direction: column;
+
+    }
+
 }
