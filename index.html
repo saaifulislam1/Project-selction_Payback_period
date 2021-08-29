@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Project Selection</title>
+  </head>
+  <body>
+    <table id="inputs">
+      <h2>Enter cash flow amount</h2>
+      <tr>
+        <th>0</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+
+        <th>6</th>
+        <th>7</th>
+      </tr>
+      
+
+      <tr>
+        <section class="cashflow">
+          <td><input id="val1" type="number" /></td>
+          <td><input id="val2" type="number" /></td>
+          <td><input id="val3" type="number" /></td>
+          <td><input id="val4" type="number" /></td>
+          <td><input id="val5" type="number" /></td>
+          <td><input id="val6" type="number" /></td>
+
+          <td><input id="val7" type="number" /></td>
+          <td><input id="val8" type="number" /></td>
+        </section>
+      </tr>
+    </table>
+
+    <section class="access">
+       <label for=""
+      >Interest rate in % <input id="interest" type="number" />
+    </label>
+    <label for="">Number of Year <input id="no_Year" type="number" /> </label>
+
+    <button id="submit">Calculate Payback period</button>
+    </section>
+
+    
+
+   
+
+    <section id="display" >
+      <h1>Formula:</h1>
+      <h2>payBack period= Number of year prior to full recovery  + (Unrecovered cost  at the start of the year/cash flow during full recovery)</h2>
+     
+
+      
+
+
+    </section>
+    <footer>
+      Developed by <a href="https://www.facebook.com/saaifulislamrifat/" target="_blank">@<span class="name">Saiful Islam Rifat</span></a>
+    </footer>
+
+    <script>
+      document.getElementById("submit").addEventListener("click", function () {
+        const vaal1 = document.getElementById("val1").value;
+        const fval_1 = parseFloat(vaal1);
+        const vaal2 = document.getElementById("val2").value;
+        const fval_2 = parseFloat(vaal2);
+        const vaal3 = document.getElementById("val3").value;
+        const fval_3 = parseFloat(vaal3);
+        const vaal4 = document.getElementById("val4").value;
+        const fval_4 = parseFloat(vaal4);
+        const vaal5 = document.getElementById("val5").value;
+        const fval_5 = parseFloat(vaal5);
+        const vaal6 = document.getElementById("val5").value;
+        const fval_6 = parseFloat(vaal6);
+
+        const vaal7 = document.getElementById("val5").value;
+        const fval_7 = parseFloat(vaal7);
+        const vaal8 = document.getElementById("val5").value;
+        const fval_8 = parseFloat(vaal8);
+
+        // value collection of cash flow is done,
+        let arr = [];
+        arr.push(
+          fval_1,
+          fval_2,
+          fval_3,
+          fval_4,
+          fval_5,
+          fval_6,
+          fval_7,
+          fval_8
+        );
+        //console.log(arr);
+
+        // Now do collect the value of year
+        //const year = [0, 1, 2, 3, 4, 5];
+        const no_year = document.getElementById("no_Year").value;
+        const number_of_year = parseInt(no_year);
+        const year = [];
+
+        for (let i = 0; i <= number_of_year; i++) {
+          console.log(i);
+          year.push(i);
+        }
+
+        const interest = document.getElementById("interest").value;
+        const final_interest = parseFloat(interest) / 100;
+        //console.log(final_interest)
+
+        //  const p1=arr[0]/(Math.pow(1+final_interest,year[0]));
+        //wrapped it in loop
+        const discounted_arr = [];
+        for (let z = 0; z < year.length; z++) {
+          let p1 = arr[z] / Math.pow(1 + final_interest, year[z]);
+          console.log(p1);
+          discounted_arr.push(p1);
+        }
+        console.log(`discounted_cash is  ${discounted_arr }`);
+
+        
+
+
+
+
+        let cumilative = 0;
+        const cumilative_array = [];
+        for (let d = 0; d < discounted_arr.length; d++) {
+          cumilative = cumilative + discounted_arr[d]; //-1000,-909,
+          cumilative_array.push(cumilative);
+        }
+        console.log(`cumilative_cash is ${cumilative_array}`);
+        let minus = 0;
+        const negative = [];
+
+        for (let i = 0; i < cumilative_array.length; i++) {
+          if (cumilative_array[i] < 0) {
+            negative.push(cumilative_array[i]);
+          }
+        }
+
+        let max = negative[0];
+        let index = 0;
+
+        for (let j = 0; j < negative.length; j++) {
+          if (max < negative[j]) {
+            max = negative[j];
+            index = j;
+          }
+        }
+        console.log(`Unrecovered amount is ${max}  and year  ${index}`);
+        let positiveMax = max * -1;
+
+        let fully_recovered_amount = discounted_arr[index + 1];
+        console.log(`fully_recovered_amount ${fully_recovered_amount}`);
+
+        let payBack_period = index + positiveMax / fully_recovered_amount;
+        console.log(`payBack_period) is ${payBack_period} `);
+
+
+
+        document.write(`payBack_period is ${payBack_period}`)
+        
+
+      
+        
+
+
+      });
+    </script>
+  </body>
+</html>
