@@ -87,12 +87,12 @@
         const fval_4 = parseFloat(vaal4);
         const vaal5 = document.getElementById("val5").value;
         const fval_5 = parseFloat(vaal5);
-        const vaal6 = document.getElementById("val5").value;
+        const vaal6 = document.getElementById("val6").value;
         const fval_6 = parseFloat(vaal6);
 
-        const vaal7 = document.getElementById("val5").value;
+        const vaal7 = document.getElementById("val7").value;
         const fval_7 = parseFloat(vaal7);
-        const vaal8 = document.getElementById("val5").value;
+        const vaal8 = document.getElementById("val8").value;
         const fval_8 = parseFloat(vaal8);
 
         // value collection of cash flow is done,
@@ -116,7 +116,7 @@
         const year = [];
 
         for (let i = 0; i <= number_of_year; i++) {
-          console.log(i);
+         // console.log(i);
           year.push(i);
         }
 
@@ -129,7 +129,7 @@
         const discounted_arr = [];
         for (let z = 0; z < year.length; z++) {
           let p1 = arr[z] / Math.pow(1 + final_interest, year[z]);
-          console.log(p1);
+          //console.log(p1);
           discounted_arr.push(p1);
         }
         console.log(`discounted_cash is  ${discounted_arr }`);
@@ -164,15 +164,19 @@
             index = j;
           }
         }
-        console.log(`Unrecovered amount is ${max}  and year  ${index}`);
-        let positiveMax = max * -1;
+        let max2=max.toFixed(2);
+        console.log(`Unrecovered amount is ${max2}  and year  ${index}`);
+        let positiveMax = max2 * -1;
 
         let fully_recovered_amount = discounted_arr[index + 1];
-        console.log(`fully_recovered_amount ${fully_recovered_amount}`);
+        let fully_recovered_amount2=fully_recovered_amount.toFixed(2)
 
-        let payBack_period = index + positiveMax / fully_recovered_amount;
-        console.log(`payBack_period) is ${payBack_period} `);
-        document.getElementById('payb').innerHTML=payBack_period
+        console.log(`fully_recovered_amount ${fully_recovered_amount2}`);
+
+        let payBack_period = index + positiveMax / fully_recovered_amount2;
+        let payBack_period2=payBack_period.toFixed(2)
+        console.log(`payBack_period) is ${payBack_period2} `);
+        document.getElementById('payb').innerHTML=payBack_period2
 
     
 
