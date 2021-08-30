@@ -1,3 +1,4 @@
+
 #display{
     margin-top: 100px;
 }
@@ -6,6 +7,7 @@
     margin: 100px;
     align-items: center;
     padding: 20px;
+    margin-top: 30px;
     
 }
 input{
@@ -54,17 +56,21 @@ footer{
 }
 
 
-@media screen and (max-width: 375px){
+@media screen and (max-width: 500px){
     
     .access{
         display: flex;
        
         flex-direction: column;
+        margin-top: -50px;
     }
     input{
         display: flex;
         flex-direction: column;
 
+    }
+    #submit{
+        margin: 20px;
     }
 
 }

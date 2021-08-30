@@ -9,8 +9,8 @@
   </head>
   <body>
     <table  id="inputs">
-      <h2>Enter cash flow amount</h2>
-      <tr>
+      <h2>Enter cash flow amount : (year would be the amount of input you have used.Suppose if your have used 3 input field the year would be <strong>3</strong> )</h2>
+      <!-- <tr>
         <th>0</th>
         <th>1</th>
         <th>2</th>
@@ -20,18 +20,20 @@
 
         <th>6</th>
         <th>7</th>
-      </tr>
-      <tr>
+      </tr> -->
+      <tr class="access">
+        
        
-          <td><input id="val1" type="number" /></td>
-          <td><input id="val2" type="number" /></td>
-          <td><input id="val3" type="number" /></td>
-          <td><input id="val4" type="number" /></td>
-          <td><input id="val5" type="number" /></td>
-          <td><input id="val6" type="number" /></td>
+          <td><label for="">0</label><input id="val1" type="number" /></td>
+          <td><label for="">1</label><input id="val2" type="number" /></td>
+          <td><label for="">2</label><input id="val3" type="number" /></td>
+          <td><label for="">3</label><input id="val4" type="number" /></td>
+          <td><label for="">4</label><input id="val5" type="number" /></td>
+          <td><label for="">5</label><input id="val6" type="number" /></td>
 
-          <td><input id="val7" type="number" /></td>
-          <td><input id="val8" type="number" /></td>
+          <td><label for="">6</label><input id="val7" type="number" /></td>
+          <td><label for="">7</label><input id="val8" type="number" /></td>
+         
        
       </tr>
     </table>
@@ -52,13 +54,29 @@
 
     <section id="display" >
       <h1>Formula:</h1>
-      <h3>payBack period= Number of year prior to full recovery  + (Unrecovered cost  at the start of the year/cash flow during full recovery)</h3>
+      <h3>payBack period= Number of year prior to full recovery  + (Un recovered cost  at the start of the year/cash flow during full recovery)</h3>
       
       <section class="result">
          <h2>PBP :</h2>
       <h2 id="payb"></h2>
       </section>
-     <h3>use Inspect-> Console in browser to see full result</h3>
+      <div class="detailed">
+        <h3>Discounted cash flow is :</h3>
+        <h2 id="discounted_cash"> </h2>
+
+        <h3>Cumilative cash flow is </h3>
+        <h2 id="cumilative_cash"> </h2>
+
+        <h3> Number of year prior to full recovery</h3>
+        <h2 id="numberOfYear"></h2>
+
+        <h3> Unrecovered cost at the start of the year</h3>
+        <h2 id="unrecoverdCost"></h2>
+        <h3> cash flow during full recovery</h3>
+        <h2 id="fullRecovery"></h2>
+       
+      </div>
+     <!-- <h3>use Inspect-> Console in browser to see full result</h3> -->
      
 
       
@@ -169,14 +187,21 @@
         let positiveMax = max2 * -1;
 
         let fully_recovered_amount = discounted_arr[index + 1];
-        let fully_recovered_amount2=fully_recovered_amount.toFixed(2)
+        let fully_recovered_amount2=fully_recovered_amount
 
         console.log(`fully_recovered_amount ${fully_recovered_amount2}`);
 
         let payBack_period = index + positiveMax / fully_recovered_amount2;
         let payBack_period2=payBack_period.toFixed(2)
         console.log(`payBack_period) is ${payBack_period2} `);
+
         document.getElementById('payb').innerHTML=payBack_period2
+        document.getElementById('discounted_cash').innerHTML=discounted_arr;
+        document.getElementById('cumilative_cash').innerHTML=cumilative_array;
+        document.getElementById('numberOfYear').innerHTML=index;
+        document.getElementById('unrecoverdCost').innerHTML=positiveMax;
+        document.getElementById('fullRecovery').innerHTML=fully_recovered_amount2
+
 
     
 
@@ -190,6 +215,9 @@
 
 
       });
+
+
+
     </script>
   </body>
 </html>
