@@ -62,7 +62,7 @@ footer{
         display: flex;
        
         flex-direction: column;
-        margin-top: -50px;
+        padding: -10px;
     }
     input{
         display: flex;
@@ -71,6 +71,10 @@ footer{
     }
     #submit{
         margin: 20px;
+    }
+    .result{
+        display: flex;
+        width: 200px;
     }
 
 }
